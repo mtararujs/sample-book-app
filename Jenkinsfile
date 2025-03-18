@@ -68,7 +68,7 @@ pipeline {
  
  def deploy(String environment, int port){
      echo "Deployment to ${environment} has started.."
-     git branch: 'main', url: 'https://github.com/mtararujs/sample-book-app.git'
+     git branch: 'jenkins_pipeline', url: 'https://github.com/mtararujs/sample-book-app.git'
      sh "npm install"
      sh "pm2 delete \"books-${environment}\" || exit 0"
      sh "pm2 start -n \"books-${environment}\" index.js -- ${port}"
