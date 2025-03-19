@@ -70,7 +70,9 @@ pipeline {
     echo "Deployment to ${environment} has started.."
     git branch: 'jenkins_pipeline', poll: false, url: 'https://github.com/mtararujs/sample-book-app.git'
     sh "pm2 delete \"books-${environment}\" || exit 0"
+    sh "sleep 3"
     sh "pm2 start -n \"books-${environment}\" index.js -- ${port}"
+    sh "sleep 3"
  }
  
  def test(String test_set, String environment){
