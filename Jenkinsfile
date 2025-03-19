@@ -67,9 +67,10 @@ pipeline {
  }
  
  def deploy(String environment, int port){
-     echo "Deployment to ${environment} has started.."
-     sh "pm2 delete \"books-${environment}\" || exit 0"
-     sh "pm2 start -n \"books-${environment}\" index.js -- ${port}"
+    echo "Deployment to ${environment} has started.."
+    git branch: 'jenkins_pipeline', poll: false, url: 'https://github.com/mtararujs/sample-book-app.git'
+    sh "pm2 delete \"books-${environment}\" || exit 0"
+    sh "pm2 start -n \"books-${environment}\" index.js -- ${port}"
  }
  
  def test(String test_set, String environment){
