@@ -63,6 +63,6 @@ def test(String environment){
     echo "API test executuon against node application on ${environment} environment.."
     sh "docker pull mtararujs/api-tests"
     sh "docker run --rm --network=sample-book-app-network-compose mtararujs/api-tests run BOOKS BOOKS_${environment}"
-    sh "$PWD"
-    sh "${PWD}"
+    def directory = pwd()
+    sh "echo '${directory}'"
 }
