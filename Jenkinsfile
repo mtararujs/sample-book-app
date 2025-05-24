@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                script{
-                    build()
-                }      
+                buildApp()
             }
         }
         stage('deploy-dev') {
@@ -42,7 +40,7 @@ pipeline {
     
 }
 
-def build(){
+def buildApp(){
     echo "Building of node application is starting.."
 }
 
