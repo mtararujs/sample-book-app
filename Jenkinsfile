@@ -65,4 +65,5 @@ def test(String environment){
     def directory = pwd()
     sh "echo '${directory}'"
     sh "docker run --rm --network=sample-book-app-network-compose -v '${directory}':/api-tests/mochawesome-report/ mtararujs/api-tests run BOOKS BOOKS_${environment}"
+    sh "ls"
 }
