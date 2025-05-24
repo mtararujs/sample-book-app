@@ -49,6 +49,10 @@ def buildApp(){
 
 def deploy(String environment){
     echo "Deployment of node application on ${environment} environment.."
+    sh "docker pull mtararujs/sample-book-app"
+    sh "docker compose stop sample-book-app-${environment}"
+    sh "docker compose rm sample-book-app-${environment}"
+    sh "docker compose up -d sample-book-app-${environment}"
 }
 
 def test(String environment){
