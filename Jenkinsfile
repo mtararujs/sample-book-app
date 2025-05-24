@@ -14,7 +14,6 @@ pipeline {
         stage('test-dev') {
             steps {
                 echo "API test executuon against node application on DEV environment.."
-                sh 'docker2 run hello-world'
             }
         }
         stage('deploy-stg') {
