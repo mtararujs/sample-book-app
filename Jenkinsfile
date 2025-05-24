@@ -65,5 +65,4 @@ def test(String environment){
     sh "docker run --rm --network=sample-book-app-network-compose mtararujs/api-tests run BOOKS BOOKS_${environment}"
     sh "$PWD"
     sh "${PWD}"
-    sh "$(pwd)"
 }
